@@ -11,9 +11,7 @@ import java.sql.Statement;
 
 
 public class POS_UI extends JInternalFrame {
-
     JTextArea txtReceipt;
-
     JLabel lblProductCode, lblProductName, lblProductQty, lblProductPrice, lblTotal,
             lblPaid, lblBalance, lblChkOutTotal;
     JTextField txtCode, txtName, txtPrice, txtTotal,

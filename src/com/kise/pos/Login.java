@@ -7,16 +7,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 
 public class Login extends JFrame implements ActionListener {
-
     JLabel lblLogin;
     JComboBox<String> cbUser;
     JPasswordField passwordField;
     JButton btnLogin;
-
     String[] users = {"Select user role", "admin", "cashier"};
-
     String user;
-
     Login() {
         setExtendedState(MAXIMIZED_BOTH);
         setUndecorated(true);
@@ -29,7 +25,6 @@ public class Login extends JFrame implements ActionListener {
         setLayout(gridBagLayout);
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
-
 
         lblLogin = new JLabel("Login to continue...", new ImageIcon("images\\logo.png"), JLabel.LEFT);
         lblLogin.setFont(new Font("Malgun Gothic", Font.ITALIC, 30));
@@ -111,9 +106,10 @@ public class Login extends JFrame implements ActionListener {
                 if (user.equalsIgnoreCase("cashier")) {
                     new Cashier_Dashboard(connectionPool.connection);
                 }
+                JOptionPane.showMessageDialog(null, "Welcome, " + user.toUpperCase() + " to FOCUS POS");
+                dispose();
             }
-            JOptionPane.showMessageDialog(null, "Welcome, " + user.toUpperCase() + " to FOCUS POS");
-            dispose();
+
         }
 
     }

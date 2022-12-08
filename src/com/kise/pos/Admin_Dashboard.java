@@ -159,7 +159,6 @@ public class Admin_Dashboard extends JFrame {
         });
         reportMenu.add(productReport);
 
-
 //        SETTINGS
         logoutMenuItem = new JMenuItem("Logout");
         logoutMenuItem.addActionListener(e -> {
