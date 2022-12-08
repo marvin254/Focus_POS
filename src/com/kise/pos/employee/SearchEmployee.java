@@ -20,7 +20,7 @@ public class SearchEmployee extends JInternalFrame {
     public SearchEmployee(Connection connection) {
         super("Search For Employee", false, true, true, true);
         setBounds(400, 30, 650, 500);
-        setFrameIcon(new ImageIcon("images\\icons8_user"));
+        setFrameIcon(new ImageIcon("resources\\icons8_user"));
 
         this.connection = connection;
 

@@ -22,7 +22,7 @@ public class DeleteProduct extends JInternalFrame {
     public DeleteProduct(Connection connection) {
         super("Delete Product", false, true, true, true);
         setBounds(230, 30, 900, 550);
-        setFrameIcon(new ImageIcon("images\\icons8_product.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_product.png"));
 
         this.connection = connection;
 

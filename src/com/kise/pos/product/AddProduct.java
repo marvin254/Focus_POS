@@ -22,7 +22,7 @@ public class AddProduct extends JInternalFrame {
     public AddProduct(Connection connection) {
         super("Add Product", false, true, true, true );
         setBounds(230, 30, 900, 500);
-        setFrameIcon(new ImageIcon("images\\icons8_product.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_product.png"));
 
         this.connection = connection;
 

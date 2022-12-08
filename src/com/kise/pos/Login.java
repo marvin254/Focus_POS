@@ -17,7 +17,7 @@ public class Login extends JFrame implements ActionListener {
         setExtendedState(MAXIMIZED_BOTH);
         setUndecorated(true);
         setBackground(Color.white);
-        setIconImage(new ImageIcon("images\\logo.png").getImage());
+        setIconImage(new ImageIcon("resources\\logo.png").getImage());
 
         Font font = new Font("Malgun Gothic", Font.BOLD, 16);
 
@@ -26,7 +26,7 @@ public class Login extends JFrame implements ActionListener {
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
 
-        lblLogin = new JLabel("Login to continue...", new ImageIcon("images\\logo.png"), JLabel.LEFT);
+        lblLogin = new JLabel("Login to continue...", new ImageIcon("resources\\logo.png"), JLabel.LEFT);
         lblLogin.setFont(new Font("Malgun Gothic", Font.ITALIC, 30));
         lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
         gridBagConstraints.anchor = GridBagConstraints.WEST;
@@ -73,7 +73,7 @@ public class Login extends JFrame implements ActionListener {
 
         add(passwordField, gridBagConstraints);
 
-        btnLogin = new JButton("Login", new ImageIcon("images\\icons8_login.png"));
+        btnLogin = new JButton("Login", new ImageIcon("resources\\icons8_login.png"));
         btnLogin.setBackground(Color.BLUE);
         btnLogin.setForeground(Color.WHITE);
         btnLogin.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 18));

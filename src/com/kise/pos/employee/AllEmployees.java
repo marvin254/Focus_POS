@@ -23,7 +23,7 @@ public class AllEmployees extends JInternalFrame {
     public AllEmployees(Connection connection) {
         super("All Employees", false, true, true, true);
         setBounds(84, 10, 1200, 550);
-        setFrameIcon(new ImageIcon("images\\icons8_user.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_user.png"));
 
         this.connection = connection;
 

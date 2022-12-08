@@ -17,11 +17,11 @@ public class ProductReport extends JInternalFrame {
     public ProductReport(Connection connection) throws FileNotFoundException {
         super("Product Report", false, true, true, true);
         setBounds(84, 30, 1200, 600);
-        setFrameIcon(new ImageIcon("images\\icons8_report.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_report.png"));
 
         this.connection = connection;
 
-        InputStream inputStream = new FileInputStream("jasperReports\\Products_Report.jrxml");
+        InputStream inputStream = new FileInputStream("resources//jasperReports\\Products_Report.jrxml");
         try {
             JasperDesign jasperDesign = JRXmlLoader.load(inputStream);
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);

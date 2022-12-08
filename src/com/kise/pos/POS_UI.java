@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ItemEvent;
+import java.awt.print.PrinterException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.sql.Statement;
 
 
 public class POS_UI extends JInternalFrame {
-    JTextArea txtReceipt;
+     JTextArea txtReceipt;
     JLabel lblProductCode, lblProductName, lblProductQty, lblProductPrice, lblTotal,
             lblPaid, lblBalance, lblChkOutTotal;
     JTextField txtCode, txtName, txtPrice, txtTotal,
@@ -36,7 +37,7 @@ public class POS_UI extends JInternalFrame {
     POS_UI(Connection connection) {
         super("POS", false, true, true, true);
         setBounds(34, 10, 1300, 650);
-        setFrameIcon(new ImageIcon("images\\icons8_computer.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_computer.png"));
 
         this.connection = connection;
 
@@ -295,7 +296,7 @@ public class POS_UI extends JInternalFrame {
         panelChkOut.add(btnCheckOut, gridBagConstraints);
 
 
-        btnPrint = new JButton("Print Receipt", new ImageIcon("images\\icons8_print.png"));
+        btnPrint = new JButton("Generate Receipt", new ImageIcon("resources\\icons8_print.png"));
         btnPrint.setBackground(Color.BLUE);
         btnPrint.setForeground(Color.WHITE);
         btnPrint.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 16));
@@ -305,16 +306,15 @@ public class POS_UI extends JInternalFrame {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.ipadx = 150;
         gridBagConstraints.insets = new Insets(10, 10, 10, 10);
-        btnPrint.addActionListener(e -> {});
+        btnPrint.addActionListener(e -> print());
         panelChkOut.add(btnPrint, gridBagConstraints);
+
 
         add(panelChkOut, BorderLayout.EAST);
         setVisible(true);
 
     }
 
-    public POS_UI() {
-    }
 
     public void fetchData() {
 
@@ -378,21 +378,18 @@ public class POS_UI extends JInternalFrame {
         }
     }
 
-    public JTextArea populateReceipt() {
-
+    public void print() {
         txtReceipt = new JTextArea();
-        txtReceipt.setSize(500, 400);
         txtReceipt.setFont(font);
 
-
         txtReceipt.setText(txtReceipt.getText() +
-                "************************************************************ \n");
+                "************************************************************************************* \n");
         txtReceipt.setText(txtReceipt.getText()
-                + "**                 FOCUS POS RECEIPT                   ** \n");
+                + "**                              FOCUS POS RECEIPT                                ** \n");
         txtReceipt.setText(txtReceipt.getText() +
-                "*********************************************************** \n");
+                "************************************************************************************* \n");
 
-        txtReceipt.setText(txtReceipt.getText() + " Name" + "\t" + "Qty" + "\t" + "Price" + "\t" + "Amount" + "\n");
+        txtReceipt.setText(txtReceipt.getText() + " Item" + "\t" + "Quantity" + "\t" + "Price" + "\t" + "Amount" + "\n");
 
         for (int i = 0; i < table.getRowCount(); i++) {
             String productName = (String) table.getValueAt(i, 1);
@@ -406,11 +403,15 @@ public class POS_UI extends JInternalFrame {
         txtReceipt.setText(txtReceipt.getText() + "\n");
         txtReceipt.setText(txtReceipt.getText() + "\n");
 
-        txtReceipt.setText(txtReceipt.getText() + "\t" + "\t" + "Total" + txtChkOutTotal.getText() + "\n");
-        txtReceipt.setText(txtReceipt.getText() + "\t" + "\t" + "Amount paid" + txtPaid.getText() + "\n");
-        txtReceipt.setText(txtReceipt.getText() + "\t" + "\t" + "Balance" + txtBalance.getText() + "\n");
+        txtReceipt.setText(txtReceipt.getText() + "\t" + "\t" + "Sale Total:  " + txtChkOutTotal.getText() + "\n");
+        txtReceipt.setText(txtReceipt.getText() + "\t" + "\t" + "Amount paid:  " + txtPaid.getText() + "\n");
+        txtReceipt.setText(txtReceipt.getText() + "\t" + "\t" + "Balance:  " + txtBalance.getText() + "\n");
 
-        return txtReceipt;
+        try {
+            txtReceipt.print();
+        } catch (PrinterException e) {
+            throw new RuntimeException(e);
+        }
+
     }
-
 }

@@ -22,7 +22,10 @@ public class Splash_Screen extends JWindow {
         setLocationRelativeTo(null);
         setLayout(null);
         setBackground(Color.WHITE);
-        setContentPane(new JLabel(new ImageIcon("images\\splash.png")));
+
+
+
+        setContentPane(new JLabel(new ImageIcon("resources\\splash.png")));
 
 
         setVisible(true);

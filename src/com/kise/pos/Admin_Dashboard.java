@@ -29,7 +29,7 @@ public class Admin_Dashboard extends JFrame {
         super("Dashboard");
         setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setIconImage(new ImageIcon("images\\logo.png").getImage());
+        setIconImage(new ImageIcon("resources\\logo.png").getImage());
 
         this.connection = connection;
 

@@ -23,7 +23,7 @@ public class UpdateEmployee extends JInternalFrame {
     public UpdateEmployee(Connection connection) {
         super("Update Employee", false, true, true, true);
         setBounds(400, 30, 650, 550);
-        setFrameIcon(new ImageIcon("images\\icons8_user.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_user.png"));
 
         this.connection = connection;
 

@@ -22,7 +22,7 @@ public class UpdateProduct extends JInternalFrame {
     public UpdateProduct(Connection connection) {
         super("Update Employee", false, true, true, true);
         setBounds(230, 30, 900, 600);
-        setFrameIcon(new ImageIcon("images\\icons8_product.png"));
+        setFrameIcon(new ImageIcon("resources\\icons8_product.png"));
 
         this.connection = connection;
 
